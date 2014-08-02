@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="persona" class="com.spring.model.Persona">
+        <property name="nombre" value="Gino"/>        
+    </bean>
+    
+    <!--Valores Constructor -->
+   <bean id="musico" class="com.spring.model.Musico">
+    <constructor-arg value="5"/>
+    </bean>
+    
+    <bean id="instrumento" class="com.spring.model.Instrumento">
+        <property name="nombre" value="Piano"/>        
+    </bean>
+     
+    <bean id="musico2" class="com.spring.model.Musico">
+        <constructor-arg value="5"/>
+        <constructor-arg ref="instrumento"/>
+    </bean>
+    
+    <bean id="musico3" class="com.spring.model.Musico">
+        <property name="instrumento" ref="instrumento" />
+        <property name="numeroCanciones" value="100" />
+    </bean>
+    
+    <bean id="musico4" class="com.spring.model.Musico">
+        <property name="instrumento">
+            <bean class="com.spring.model.Instrumento">
+                <property name="nombre" value="Flauta"/>        
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="guitarra" class="com.spring.model.Guitarra">
+        <property name="nombre" value="Guitarra"/>        
+    </bean>
+    
+    <bean id="piano" class="com.spring.model.Piano">
+        <property name="nombre" value="Piano"/>        
+    </bean>
+    
+    <bean id="musico5" class="com.spring.model.Musico">
+        <property name="instrumentos">
+        <list>
+            <ref bean="guitarra"/>
+            <ref bean="piano"/>
+        </list>
+        </property>
+    </bean>
+        
+</beans>
