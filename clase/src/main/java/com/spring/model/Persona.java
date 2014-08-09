@@ -2,7 +2,7 @@ package com.spring.model;
 
 public class Persona {
 
-	private String nombre;    
+    private String nombre;    
     private String apellido;
 
     public String getNombre() {

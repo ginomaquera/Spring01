@@ -15,8 +15,8 @@ public class App {
 	        //AppBean.inyeccionBean(cntx);
 	        //App.inyeccionColeccion(cntx);
                 //App.inyeccionNombre(cntx);
-                //App.inyeccionTipo(cntx);
-                App.inyeccionConstructor(cntx);
+                App.inyeccionTipo(cntx);
+                //App.inyeccionConstructor(cntx);
                 //App.inyeccionAutomatica(cntx);
 	    }
 	    

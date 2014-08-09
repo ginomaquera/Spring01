@@ -13,10 +13,10 @@
         <constructor-arg value="5"/>
     </bean>
     
-    <bean id="instrumento" class="com.spring.model.Instrumento">
+    <bean id="instrumento" class="com.spring.model.Instrumento" primary="true" >
         <property name="nombre" value="instrPiano"/>        
     </bean>
-    <!--
+    
      <bean id="instrumento10" class="com.spring.model.Instrumento">
         <property name="nombre" value="Inyeccion por Nombre"/>        
     </bean>
@@ -28,7 +28,7 @@
     <bean id="piano" class="com.spring.model.Piano">
         <property name="nombre" value="Piano"/>        
     </bean>
-     -->
+     
     <bean id="musico2" class="com.spring.model.Musico">
         <constructor-arg value="5"/>
         <constructor-arg ref="instrumento"/>
@@ -48,7 +48,7 @@
     </bean>
     
     
-    <!--
+    
     <bean id="musico5" class="com.spring.model.Musico">
         <property name="instrumentos">
             <list>
@@ -57,7 +57,7 @@
             </list>
         </property>
     </bean>
-   --> 
+    
     <bean id="musico9" class="com.spring.model.Musico">
         <property name="instrumentos">
             <null/>
@@ -72,7 +72,7 @@
     
     
     <bean id="musico12" class="com.spring.model.Musico" autowire="constructor"/>
-    
+           
     <!--
     <bean id="musico13" class="com.spring.model.Musico" autowire="autodetect"/>
         -->
