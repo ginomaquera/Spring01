@@ -13,7 +13,11 @@ public class App {
 	        //AppBean.valoresReferencia(cntx);
 	        //AppBean.valoresSetter(cntx);
 	        //AppBean.inyeccionBean(cntx);
-	        App.inyeccionColeccion(cntx);
+	        //App.inyeccionColeccion(cntx);
+                //App.inyeccionNombre(cntx);
+                //App.inyeccionTipo(cntx);
+                App.inyeccionConstructor(cntx);
+                //App.inyeccionAutomatica(cntx);
 	    }
 	    
 	    public static void valoresConstructor(ApplicationContext context) {
@@ -41,5 +45,24 @@ public class App {
 	        System.out.println(musico.getInstrumentos().get(0).getNombre());        
 	        System.out.println(musico.getInstrumentos().get(1).getNombre());        
 	    }
-
+            
+            public static void inyeccionNombre(ApplicationContext context) {
+	        Musico musico = (Musico) context.getBean("musico10");
+	        System.out.println(musico.getInstrumento10().getNombre());        
+	    }
+            
+            public static void inyeccionTipo(ApplicationContext context) {
+	        Musico musico = (Musico) context.getBean("musico11");
+	        System.out.println(musico.getInstrumento10().getNombre());        
+	    }
+            
+            public static void inyeccionConstructor(ApplicationContext context) {
+	        Musico musico = (Musico) context.getBean("musico12");
+	        System.out.println(musico.getInstrumento().getNombre());        
+	    }
+            
+            public static void inyeccionAutomatica(ApplicationContext context) {
+	        Musico musico = (Musico) context.getBean("musico13");
+	        System.out.println(musico.getInstrumento().getNombre());        
+	    }
 }

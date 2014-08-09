@@ -9,14 +9,26 @@
     </bean>
     
     <!--Valores Constructor -->
-   <bean id="musico" class="com.spring.model.Musico">
-    <constructor-arg value="5"/>
+    <bean id="musico" class="com.spring.model.Musico">
+        <constructor-arg value="5"/>
     </bean>
     
     <bean id="instrumento" class="com.spring.model.Instrumento">
+        <property name="nombre" value="instrPiano"/>        
+    </bean>
+    <!--
+     <bean id="instrumento10" class="com.spring.model.Instrumento">
+        <property name="nombre" value="Inyeccion por Nombre"/>        
+    </bean>
+    
+    <bean id="guitarra" class="com.spring.model.Guitarra">
+        <property name="nombre" value="Guitarra"/>        
+    </bean>
+    
+    <bean id="piano" class="com.spring.model.Piano">
         <property name="nombre" value="Piano"/>        
     </bean>
-     
+     -->
     <bean id="musico2" class="com.spring.model.Musico">
         <constructor-arg value="5"/>
         <constructor-arg ref="instrumento"/>
@@ -35,21 +47,33 @@
         </property>
     </bean>
     
-    <bean id="guitarra" class="com.spring.model.Guitarra">
-        <property name="nombre" value="Guitarra"/>        
-    </bean>
     
-    <bean id="piano" class="com.spring.model.Piano">
-        <property name="nombre" value="Piano"/>        
-    </bean>
-    
+    <!--
     <bean id="musico5" class="com.spring.model.Musico">
         <property name="instrumentos">
-        <list>
-            <ref bean="guitarra"/>
-            <ref bean="piano"/>
-        </list>
+            <list>
+                <ref bean="guitarra"/>
+                <ref bean="piano"/>
+            </list>
         </property>
     </bean>
-        
+   --> 
+    <bean id="musico9" class="com.spring.model.Musico">
+        <property name="instrumentos">
+            <null/>
+        </property>
+    </bean>
+    
+   
+    
+    <bean id="musico10" class="com.spring.model.Musico" autowire="byName"/>
+    
+    <bean id="musico11" class="com.spring.model.Musico" autowire="byType"/>
+    
+    
+    <bean id="musico12" class="com.spring.model.Musico" autowire="constructor"/>
+    
+    <!--
+    <bean id="musico13" class="com.spring.model.Musico" autowire="autodetect"/>
+        -->
 </beans>

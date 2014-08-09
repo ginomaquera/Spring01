@@ -10,14 +10,13 @@ public class Musico extends Persona {
     
     private Instrumento instrumento;   
     
+    private Instrumento instrumento10;     
     
     private List<Instrumento> instrumentos;
 
     public Musico() {
     }    
     
-    
-
     public Musico(int numeroCanciones) {
         this.numeroCanciones = numeroCanciones;
     }   
@@ -26,6 +25,20 @@ public class Musico extends Persona {
         this.numeroCanciones = numeroCanciones;
         this.instrumento = instrumento;
     }  
+    
+    public Musico(Instrumento instrumento) {        
+        this.instrumento = instrumento;
+    }
+    
+    public Instrumento getInstrumento10() {
+        return instrumento10;
+    }
+
+    public void setInstrumento10(Instrumento instrumento10) {
+        this.instrumento10 = instrumento10;
+    }
+
+    
     
 
     public List<Instrumento> getInstrumentos() {
