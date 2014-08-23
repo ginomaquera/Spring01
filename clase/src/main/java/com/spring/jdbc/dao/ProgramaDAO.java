@@ -17,6 +17,8 @@ public interface ProgramaDAO {
     
     Programa find(Long id);
     
+    Programa find(String nombre);
+    
     void save(Programa programa);
     
     void update(Programa programa);

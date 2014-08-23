@@ -12,32 +12,13 @@ public class App {
 	
 	 public static void main(String[] args) {
                 ApplicationContext cntx = new ClassPathXmlApplicationContext("jdbc_db.xml");
-                ProgramaDAO localDAO = (ProgramaDAO) cntx.getBean("programaDAO");
-                System.out.println("Lista Inicial");
-                List<Programa> lista = localDAO.all();
-                for (Programa p: lista) {
-                    System.out.println("Nombre: "+p.getNombre()+ " id: "+p.getCodigo());
-                }                
-                Programa pro1 = localDAO.find(Long.valueOf(1));
-                System.out.println("valores :"+pro1.getDescripcion());
+                //ProgramaDAO localDAO = (ProgramaDAO) cntx.getBean("programaDAO");                     
+                Programa pro = new Programa(null, "10", "10", "10");
+                App.grabar(cntx, pro);
                 
-                Programa pro2 = new Programa(Long.valueOf(2),"C9","C9","2");
-                localDAO.update(pro2);
-                System.out.println("Modificando valor C2");
-                System.out.println("Lista Actualizada");
-                List<Programa> lista2 = localDAO.all();
-                for (Programa p: lista2) {
-                    System.out.println("Nombre: "+p.getNombre()+ " id: "+p.getCodigo());
-                }
+                           
+                                
                 
-                Programa pro3 = new Programa(Long.valueOf(4),"Pro2","Pro2","4");
-                localDAO.delete(pro3);
-                System.out.println("Eliminando Pro2");
-                System.out.println("Lista Actualizada");
-                List<Programa> lista3 = localDAO.all();
-                for (Programa p: lista3) {
-                    System.out.println("Nombre: "+p.getNombre()+ " id: "+p.getCodigo());
-                }
                 
 	        //ApplicationContext cntx = new ClassPathXmlApplicationContext("app.xml");
 	        //AppBean.valoresConstructor(cntx);
@@ -99,4 +80,55 @@ public class App {
 	        Musico musico = (Musico) context.getBean("musico13");
 	        System.out.println(musico.getInstrumento().getNombre());        
 	    }
+            
+            public static void eliminarPro(ApplicationContext context, Long id) {
+	        ProgramaDAO localDAO = (ProgramaDAO) context.getBean("programaDAO");
+                Programa pro = new Programa();
+                pro.setId(id);
+                localDAO.delete(pro);
+                System.out.println("Eliminando Pro2");
+                System.out.println("Lista Actualizada");
+                List<Programa> lista3 = localDAO.all();
+                for (Programa p: lista3) {
+                    System.out.println("Nombre: "+p.getNombre()+ " id: "+p.getCodigo());
+                }        
+	    }
+            
+            public static void obtenerPro(ApplicationContext context, Long id) {
+	        ProgramaDAO localDAO = (ProgramaDAO) context.getBean("programaDAO");
+                Programa pro1 = localDAO.find(1L);
+                System.out.println("valor x Id :"+pro1.getDescripcion());
+                System.out.println("valor x codigo :"+pro1.getCodigo());
+	    }
+            
+            public static void buscar(ApplicationContext context) {
+	        ProgramaDAO localDAO = (ProgramaDAO) context.getBean("programaDAO");
+                String nombre = "C9";
+                Programa pro4 = localDAO.find(nombre);
+                System.out.println("valor x Nombre :"+pro4.getDescripcion());
+	    }
+
+            public static void actualizar(ApplicationContext context, Long id) {
+                ProgramaDAO localDAO = (ProgramaDAO) context.getBean("programaDAO");
+                Programa pro = localDAO.find(id);
+                localDAO.update(pro);
+                System.out.println("Modificando valor C2");
+                System.out.println("Lista Actualizada");
+                List<Programa> lista2 = localDAO.all();
+                for (Programa p: lista2) {
+                    System.out.println("Nombre: "+p.getNombre()+ " id: "+p.getCodigo());                }              
+
+	    }
+            
+            public static void grabar(ApplicationContext context, Programa pro) {
+                ProgramaDAO localDAO = (ProgramaDAO) context.getBean("programaDAO");                
+                localDAO.save(pro);
+                System.out.println("Agregando valor");
+                System.out.println("Lista Actualizada");
+                List<Programa> lista2 = localDAO.all();
+                for (Programa p: lista2) {
+                    System.out.println("Nombre: "+p.getNombre()+ " id: "+p.getCodigo());                }              
+
+	    }
+            
 }
