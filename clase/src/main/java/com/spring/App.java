@@ -21,12 +21,21 @@ public class App {
                 Programa pro1 = localDAO.find(Long.valueOf(1));
                 System.out.println("valores :"+pro1.getDescripcion());
                 
-                Programa pro2 = new Programa(Long.valueOf(2),"C4","C3","2");
+                Programa pro2 = new Programa(Long.valueOf(2),"C9","C9","2");
                 localDAO.update(pro2);
                 System.out.println("Modificando valor C2");
                 System.out.println("Lista Actualizada");
                 List<Programa> lista2 = localDAO.all();
                 for (Programa p: lista2) {
+                    System.out.println("Nombre: "+p.getNombre()+ " id: "+p.getCodigo());
+                }
+                
+                Programa pro3 = new Programa(Long.valueOf(4),"Pro2","Pro2","4");
+                localDAO.delete(pro3);
+                System.out.println("Eliminando Pro2");
+                System.out.println("Lista Actualizada");
+                List<Programa> lista3 = localDAO.all();
+                for (Programa p: lista3) {
                     System.out.println("Nombre: "+p.getNombre()+ " id: "+p.getCodigo());
                 }
                 

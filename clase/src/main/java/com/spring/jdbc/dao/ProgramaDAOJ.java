@@ -46,6 +46,7 @@ public class ProgramaDAOJ extends JdbcDaoSupport implements ProgramaDAO {
     }
 
     public void delete(Programa programa) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.getJdbcTemplate().update("delete from programa where id=?",
+            new Object[]{programa.getId()});
     }
 }
