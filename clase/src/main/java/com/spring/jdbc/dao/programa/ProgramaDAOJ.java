@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.spring.jdbc.dao;
+package com.spring.jdbc.dao.programa;
 
 import com.spring.jdbc.ProgramaRowMapper;
 import com.spring.jdbc.model.Programa;
@@ -16,19 +16,19 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
  */
 public class ProgramaDAOJ extends JdbcDaoSupport implements ProgramaDAO {
 
-    public List<Programa> all() {
+    public List<Programa> list() {
         String sql = "select * from programa";
         return this.getJdbcTemplate().query(sql, new ProgramaRowMapper());
     }
 
-    public Programa find(Long id) {
+    public Programa get(Long id) {
         String sql = "select * from programa where id = ?";
         Programa programa = (Programa) this.getJdbcTemplate()
                 .queryForObject(sql, new Object[]{id}, new ProgramaRowMapper());
         return programa;
     }
     
-    public Programa find(String nombre) {
+    public Programa get(String nombre) {
         String sql = "select * from programa where nombre = ? ";
         Programa programa = (Programa) this.getJdbcTemplate()
                 .queryForObject(sql, new Object[]{nombre}, new ProgramaRowMapper());
@@ -64,5 +64,11 @@ public class ProgramaDAOJ extends JdbcDaoSupport implements ProgramaDAO {
     public void delete(Programa programa) {
        this.getJdbcTemplate().update("delete from programa where id=?",
             new Object[]{programa.getId()});
+    }
+
+    
+
+    public void delete(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
